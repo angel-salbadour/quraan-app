@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-ui: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+    --font-quran: 'Amiri', 'Traditional Arabic', serif;
+
+    /* Light Ivory & Royal Sapphire Theme (Default — Low-Glare Editorial) */
+    --bg-canvas: #F9F7F2;
+    --bg-surface: #FFFDF9;
+    --bg-subtle: #F1EDE4;
+    --border-hairline: #E3DCCE;
+    --text-primary: #1C2331;
+    --text-secondary: #535E70;
+    --text-muted: #6F7B8E;
+    --accent-primary: #1E4068;
+    --accent-primary-hover: #163254;
+    --accent-btn-bg: #1E4068;
+    --accent-btn-hover: #163254;
+    --accent-soft: #EAF0F7;
+    --accent-gold: #B68836;
+  }
+
+  .theme-sepia {
+    /* Eye-Comfort Medina Mushaf Parchment Theme */
+    --bg-canvas: #F4ECD9;
+    --bg-surface: #FBF6EA;
+    --bg-subtle: #EAE0C8;
+    --border-hairline: #D9CCB0;
+    --text-primary: #2A2118;
+    --text-secondary: #605141;
+    --text-muted: #7A6A58;
+    --accent-primary: #22446B;
+    --accent-primary-hover: #183454;
+    --accent-btn-bg: #22446B;
+    --accent-btn-hover: #183454;
+    --accent-soft: #E5ECF3;
+    --accent-gold: #A6792C;
+  }
+
+  .dark {
+    /* Deep Calm Midnight Sapphire Theme (Anti-Halation Night Reading) */
+    --bg-canvas: #0E141E;
+    --bg-surface: #151D2B;
+    --bg-subtle: #1D2738;
+    --border-hairline: #2A374D;
+    --text-primary: #F2EFE9;
+    --text-secondary: #A9B5C6;
+    --text-muted: #8090A6;
+    --accent-primary: #72AAEB;
+    --accent-primary-hover: #8BBBF2;
+    --accent-btn-bg: #1E5288;
+    --accent-btn-hover: #174270;
+    --accent-soft: #1B2C44;
+    --accent-gold: #DFB96E;
+  }
+
+  html {
+    font-family: var(--font-ui);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+}
+
+.font-quran {
+  font-family: var(--font-quran);
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hairline);
+  border-radius: 9999px;
+}
+
+/* iOS safe area utilities */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Range input styling for audio scrubber */
+input[type='range'].quran-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range'].quran-range::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--border-hairline);
+}
+
+input[type='range'].quran-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: var(--accent-primary);
+  margin-top: -5.5px;
+  border: 2px solid var(--bg-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
