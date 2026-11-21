@@ -1,0 +1,6 @@
+{
+  "name": "المصحف المرتل — القرآن الكريم قراءة واستماع",
+  "description": "تطبيق المصحف الشريف للقراءة بالرسم العثماني والاستماع بجميع أصوات القراء مع التفسير الميسر، متوافق مع أندرويد وآيفون ويعمل دون إنترنت.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
